@@ -30,9 +30,9 @@ try:
     print("MongoDB Connected successfully!")
 except:
     print("Could not connect to MongoDB")
-consumer = KafkaConsumer('test', bootstrap_servers=[
-    'my-kafka-controller-0.my-kafka-controller-headless.default.svc.cluster.local:9092'
-    ])
+consumer = KafkaConsumer(
+        'test', 
+        bootstrap_servers=['my-kafka.default.svc.cluster.local:9092'])
 # Parse received data from Kafka
 for msg in consumer:
     record = json.loads(msg.value)
