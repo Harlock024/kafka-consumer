@@ -8,7 +8,7 @@ from pymongo.server_api import ServerApi
 import json
 import subprocess
 # replace here with your mongodb url
-uri = "mongodb://localhost/27017"
+uri = "mongodb://localhost:27017"
 
 # Create a new client and connect to the server
 #client = MongoClient(uri, server_api=ServerApi('1'))
@@ -30,15 +30,9 @@ try:
     print("MongoDB Connected successfully!")
 except:
     print("Could not connect to MongoDB")
-consumer = KafkaConsumer(
-        'test',
-        bootstrap_servers=['my-kafka.default.svc.cluster.local:9092'],
-        auto_offset_reset='earliest',  
-        enable_auto_commit=True,
-        group_id='my-group',  
-        value_deserializer=lambda x: json.loads(x.decode('utf-8'))
-
-)
+consumer = KafkaConsumer('test', bootstrap_servers=[
+    'my-kafka-controller-0.my-kafka-controller-headless.default.svc.cluster.local:9092'
+    ])
 # Parse received data from Kafka
 for msg in consumer:
     record = json.loads(msg.value)
