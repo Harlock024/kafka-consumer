@@ -13,7 +13,7 @@ spec:
         app: kafka-consumer
     spec:
       containers:
-      - image: docker.io/harlock024/kafka-consumer:027f5ab357b9da360fd30220f5f1a04c0edf1b8c
+      - image: docker.io/harlock024/kafka-consumer:d3f2cd0fa507aefe0730a232764a20dc82e363b0
         name: kafka-consumer
 #        envFrom:
 #        - configMapRef:

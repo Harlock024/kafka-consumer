@@ -8,7 +8,7 @@ from pymongo.server_api import ServerApi
 import json
 import subprocess
 # replace here with your mongodb url
-uri = "mongodb+srv://hadith024:v68thjvcyeOO6BlX@cluster0.k8krl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+uri = "mongodb://localhost/27017"
 
 # Create a new client and connect to the server
 #client = MongoClient(uri, server_api=ServerApi('1'))
